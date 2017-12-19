@@ -9,6 +9,31 @@ Since it is possible to overload the operator& for user-defined types, this is a
 
 > A forwarding reference and an r-value reference are declared in the same way, but are semantically very different. Why?
 
+A forwarding reference is a special template parameter like so:
+
+```c++
+template <typename T>
+void foo(T&& ref)
+{
+ // code
+}
+```
+
+And due to reference collapsing:
+
+```
+  A& & becomes A&
+  A& && becomes A&
+  A&& & becomes A&
+  A&& && becomes A&&
+```
+
+a forwarding reference will work out whichever type of reference actually got passed in, so an rvalue will behave as an rvalue.
+
+> C++14 added generic lambdas. Give an example of a generic lambda and give a definition of a function object class that is equivalent to the compiler-generated closure object created by your lambda.
+
+
+
 
 ## Sources
 ### Rvalues
