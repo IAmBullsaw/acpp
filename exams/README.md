@@ -32,8 +32,21 @@ a forwarding reference will work out whichever type of reference actually got pa
 
 > C++14 added generic lambdas. Give an example of a generic lambda and give a definition of a function object class that is equivalent to the compiler-generated closure object created by your lambda.
 
+A generic lambda is a lambda where at least one parameter is declared `auto`:
 
+```c++
+  auto lambda = [](auto a, auto b){ return a * b; }
+  cout << lambda(6,7) << " " << lambda(0.4,0.5) << endl;
+```
 
+For the above code, a valid generated piece of code would be:
+
+```c++
+  struct __NAME {
+    template<typename T>
+    auto operator()(T a, T b) const { return a * b; }
+  }
+```
 
 ## Sources
 ### Rvalues
