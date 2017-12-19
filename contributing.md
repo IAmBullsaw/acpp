@@ -15,6 +15,7 @@
 
 ## Branch naming rules
 * If you add information in /exams/README.md you should name your branch: exam-YYYYMMDD
+
 If this branch already exists, use it.
 
 Other rules are not currently set, so Wild West approach is given.
