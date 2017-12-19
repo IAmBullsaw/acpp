@@ -48,6 +48,15 @@ For the above code, a valid generated piece of code would be:
   }
 ```
 
+> Why shouldn’t you use operator< when comparing iterators in the code below (container is some sort of STL container):
+```
+for(auto it = begin(container); it < end(container); ++it )
+  // do something with it
+```
+Only random-access iterators support comparison with operator<. This will not compile with containers that doesn't support random-access. Instead operator!= should be used. (This was answered best from course homepage old_exams answer)
+
+
+
 ## Sources
 ### Rvalues
 * http://thbecker.net/articles/rvalue_references/section_01.html
