@@ -1,19 +1,90 @@
 #include <iostream>
+#include <iterator>
 using namespace std;
 
-template<class T>
-class Range_Iterator: {
+template<typename T>
+class Range_Iterator {
+public:
+	using iterator_category = std::input_iterator_tag;
+	using value_type = T;
+	using difference_type = T;
+	using reference = T;
+	using pointer = T* const;
+	
+	Range_Iterator(T val, T step = 1)
+		:cur{val},step{step}
+	{}
+	
+	Range_Iterator& operator++() {
+		cur += step;
+		return *this;
+	}
+	
+	Range_Iterator operator++(int) {
+		Range_Iterator temp{*this};
+		++*this;
+		return temp;
+	}
 
+	bool operator==(Range_Iterator const& rhs) const {
+		if ( step > 0 ) {
+			return cur < rhs.cur;
+		} else {
+			return cur > rhs.cur;
+		}
+	}
+
+	bool operator!=(Range_Iterator const& rhs) const {
+		return !((*this) == rhs);
+	}
+
+	reference operator*() const {
+		return cur;
+	}
+
+		
+
+private:
+	T cur;
+	T step;
 };
 
+template <typename T>
+class Range {
+public:
+	using iterator = Range_Iterator<T>;
+
+	Range(T const& start, T const& end, T const& step = 1)
+		:starting_value{start},end_value{end},step_size{step} {}
+
+	iterator begin() const {
+		return Range_Iterator<T>(starting_value,step_size);
+	}
+
+	iterator end() const {
+		return Range_Iterator<T>(end_value);
+	}
+
+private:
+	T starting_value;
+	T end_value;
+	T step_size;
+};
+
+template<typename T>
+range(T const& start, T const& end, T const% step = 1) {
+	
+}
+
+
 int main()
-{
-    {
+{ 
+    { 
         // This block should work when everything is finished
         // print values [0,9[
         for ( int v : range(10) )
             cout << v << ' ';
-
+/*
         // print values 2.3, 2.6, 2.9
         for ( auto v : range(2.3, 3.0, 0.3) )
             cout << v << ' ';
@@ -45,5 +116,6 @@ int main()
         {
             cout << *start++ << ' ';
         } // should print 2.3 2.6 2.9
+*/
     }
 }
