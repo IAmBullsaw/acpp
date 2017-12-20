@@ -25,23 +25,24 @@ public:
   // According to assignment!
   Game(Game const &) = delete;
   Game &operator=(Game const &) = delete;
-
+  virtual ~Game() = default;
 
 protected:
   Game(string const& name, int const& min, int const& max)
     :m_name{name}, m_min_players{min}, m_max_players{max}
   {}
-  virtual ~Game() = default;
 
-  virtual string type() const {
-    return "Game";
-  }
+  virtual string type() const = 0;
+
 private:
   string m_name;
   int m_min_players;
   int m_max_players;
 };
 
+string Game::type() const {
+  return "Game";
+}
 
 class Board_Game: public Game {
 public:
