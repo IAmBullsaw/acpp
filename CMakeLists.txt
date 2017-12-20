@@ -8,3 +8,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_executable(assignment5.out exams/code20170112/assignment5.cpp)
+add_executable(assignment6.out exams/code20170112/assignment6.cpp)
