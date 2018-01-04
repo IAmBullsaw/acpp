@@ -83,5 +83,6 @@ int main(int argc, char* argv[]) {
   auto [min, max] = minmax_element(begin(intervals),end(intervals));
   cout << "Largest interval: " << *max << "\nSmallest interval: " << *min << "\nAll intervals" << endl;
   copy(begin(intervals), end(intervals), ostream_iterator<Interval>{cout, "\n"});
+  
   return 0;
 }
