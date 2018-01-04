@@ -44,3 +44,6 @@ CTestTestfile.cmake
 
 # Where you should build
 build/*
+/exams/code20170112/END_TIME
+/exams/code20170112/START_TIME
+/exams/code20170112/STUDENT_RESULTS.TXT
