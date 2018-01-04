@@ -13,3 +13,6 @@ add_executable(20170112.assignment7.out exams/code20170112/assignment7.cpp)
 add_executable(20170112.assignment8.out exams/code20170112/assignment8.cpp)
 
 add_executable(20170420.assignment6.out exams/code20170420/assignment6.cpp)
+add_executable(20170420.assignment7.out exams/code20170420/assignment7.cpp)
+add_executable(20170420.assignment8.out exams/code20170420/assignment8.cpp)
+add_executable(20170420.assignment9.out exams/code20170420/assignment9.cpp)
